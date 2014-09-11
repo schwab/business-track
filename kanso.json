@@ -1,7 +1,7 @@
 {
-    "name": "my_form",
+    "name": "business",
     "version": "0.0.1",
-    "description": "My new CouchApp",
+    "description": "Business Couchapp",
     "load": "lib/app",
     "modules": "lib",
     "attachments": "static",

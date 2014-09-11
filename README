@@ -7,3 +7,7 @@ http://kan.so/docs/Simplest_possible_form
 //TODO: add url_rewrite to /add_expense -- DONE
 //TODO: create /show/add_expense form -- WORKING
 //TODO: create /_update/update_expense in updates.js -- NOT STARTED
+
+Templates (dust) : http://www.remwebdevelopment.com/blog/javascript/learning-about-dustjs-47.html
+        http://kan.so/docs/Dust
+
