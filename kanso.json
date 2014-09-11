@@ -5,6 +5,11 @@
     "load": "lib/app",
     "modules": "lib",
     "attachments": "static",
+    "less": {
+        "compress": true,
+        "compile": ["static/css/example.less"],
+        "remove_from_attachments": true
+    },
     "dust": {
         "templates": "templates"
     },
@@ -20,6 +25,8 @@
         "dust": null,
         "duality-dust": null,
         "couchtypes": null,
+        "bootstrap":null,
+        "less-precompiler":null,
 	"async": null
     }
 }
