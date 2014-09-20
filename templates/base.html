@@ -2,37 +2,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
   <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <link rel="stylesheet" type="text/css" href="{baseURL}/static/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="{baseURL}/static/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="{baseURL}/static/css/app.css" />
     <title>{title}</title> 
   </head> 
   <body>
-  <div class="navbar navbar-inverse navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Business Tracker - {title}</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+
+    <div class="app-masthead">
+      <div class="container">
+        <nav class="app-nav">
+         </nav>
       </div>
     </div>
+    <div class="container">
+        <div class="app-header"><h2 class="app-title" href="#">Business Tracker - {title}</h2></div>
+        <div class='row'>
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <div class='sidebar-module sidebar-module-inset'>
+                    <h3>Favorites</h3><h3>Recents</h3>
+                    test
+                </div>
+            </div>
 
-    <div id="" class="container">
-      {content|s}
+            <div id="" class="col-sm-8 blog-main">
+              {content|s}
+            </div>
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                {side|s}
+            </div>
+
+        </div>
     </div>
+
     <script src="{baseURL}/static/js/jquery-1.5.2.min.js"></script>
     <script src="{baseURL}/static/js/json2.js"></script>
     <!--<script src="{baseURL}/modules.js"></script>-->
-    <script src="{baseURL}/kanso.js"></script>
+    <!--<script src="{baseURL}/kanso.js"></script>-->
+    <script>
+        var base_url ="{baseURL}";
+        $( document ).ready(function() {
+            $.getJSON( "{baseURL}" + "/menus", function( data )
+                {
+                    var items =[];
+                    $.each(data.rows,function(key,val){
+                        items.push('<a class=" app-nav-item " href="'+base_url + "/" +  val.value.link + '">' + val.key + '</a>');
+                    });
+                    console.log("Got menu items (",items.length,")");
+                    $("nav.app-nav").html(items.join(""));
+                }
+            ).fail(function(){console.log("Error retrievine menu.");
+                    }
+            );
+        });
 
+
+            //var items = [];
+            //$.each( data, function( key, val ) {
+            //    alert(key,value);
+            //items.push( "<li id='" + key + "'>" + val + "</li>" );
+            //});
+            //$( "<ul/>", {
+            //"class": "my-new-list",
+            //html: items.join( "" )
+            //}).appendTo( "body" );
+            //});
+        //var add = require('lib/client').add;
+        //$('#content').append('<p>Kanso can add numbers 1+2+3 = ' + add(1,2,3) + '.</p>');
+    </script>
   </body>
 </html>

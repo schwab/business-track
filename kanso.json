@@ -27,6 +27,6 @@
         "couchtypes": null,
         "bootstrap":null,
         "less-precompiler":null,
-	"async": null
+	    "async": null
     }
 }
